@@ -1,0 +1,8 @@
+{
+  "soneium-testnet": {
+    "DemoNFT": {
+      "address": "0x509020Ac6410142F3146f0CdFF25701010073b7f",
+      "startBlock": 2810104
+    }
+  }
+}

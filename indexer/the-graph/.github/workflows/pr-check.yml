@@ -1,0 +1,30 @@
+name: PR Chcek
+
+on:
+  pull_request:
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v2
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+
+      - name: Install dependencies
+        run: yarn
+
+      - name: Generate code
+        run: yarn codegen
+
+      - name: Build for mainnet
+        run: yarn build
+
+      - name: Run tests
+        run: yarn test

@@ -1,0 +1,26 @@
+specVersion: 1.0.0
+indexerHints:
+  prune: auto
+schema:
+  file: ./schema.graphql
+dataSources:
+  - kind: ethereum
+    name: DemoNFT
+    network: soneium-testnet
+    source:
+      address: "0x509020Ac6410142F3146f0CdFF25701010073b7f"
+      abi: DemoNFT
+      startBlock: 2810104
+    mapping:
+      kind: ethereum/events
+      apiVersion: 0.0.7
+      language: wasm/assemblyscript
+      entities:
+        - DemoNFT
+      abis:
+        - name: DemoNFT
+          file: ./abis/DemoNFT.json
+      eventHandlers:
+        - event: Transfer(indexed address,indexed address,indexed uint256)
+          handler: handleTransferEvent
+      file: ./src/demo-nft.ts

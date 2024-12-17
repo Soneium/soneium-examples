@@ -1,0 +1,4 @@
+type DemoNFT @entity {
+  id: String! # this is stands for tokenId
+  owner: Bytes! # address
+}
